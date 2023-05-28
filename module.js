@@ -25,18 +25,27 @@ M.block_simple_clock = {
     updateTime: function () {
         var serverTime;
         var youTime;
+        let waktu_server;
+        let waktu_computer;
 
         // Update the server clock if shown
         if(this.serverClockShown) {
             serverTime = new Date();
             serverTime.setTime(serverTime.getTime() - this.timeDifference);
-            document.getElementById('block_progress_serverTime').value = this.getClockString(serverTime);
+
+            waktu_server =  document.getElementById('block_progress_serverTime');
+            if(waktu_server) {
+                document.getElementById('block_progress_serverTime').value = this.getClockString(serverTime);
+            }
         }
 
         // Update the user clock if shown
         if(this.userClockShown) {
             youTime = new Date();
-            document.getElementById('block_progress_youTime').value = this.getClockString(youTime);
+            waktu_computer = document.getElementById('block_progress_youTime');
+            if(waktu_computer) {
+                document.getElementById('block_progress_youTime').value = this.getClockString(youTime);
+            }
         }
 
         // Refresh clock display in 1 second
