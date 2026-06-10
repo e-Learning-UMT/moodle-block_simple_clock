@@ -156,7 +156,7 @@ class block_simple_clock extends block_base {
             $attributes['class'] = 'clock';
             $attributes['id'] = 'block_progress_serverTime';
             $attributes['value'] = get_string('loading', 'block_simple_clock');
-            $row[] = HTML_WRITER::empty_tag('input', $attributes);
+            $row[] = html_writer::empty_tag('input', $attributes);
             $table->data[] = $row;
         }
 
@@ -177,14 +177,14 @@ class block_simple_clock extends block_base {
             $attributes['class'] = 'clock';
             $attributes['id'] = 'block_progress_youTime';
             $attributes['value'] = get_string('loading', 'block_simple_clock');
-            $row[] = HTML_WRITER::empty_tag('input', $attributes);
+            $row[] = html_writer::empty_tag('input', $attributes);
             $table->data[] = $row;
         }
-        $this->content->text .= HTML_WRITER::table($table);
+        $this->content->text .= html_writer::table($table);
 
         // Set up JavaScript code needed to keep the clock going.
         $noscriptstring = get_string('javascript_disabled', 'block_simple_clock');
-        $this->content->text .= HTML_WRITER::tag('noscript', $noscriptstring);
+        $this->content->text .= html_writer::tag('noscript', $noscriptstring);
         if ($CFG->timezone != 99) {
             // Ensure that the Moodle timezone is set correctly.
             $date = new DateTime('now', new DateTimeZone(core_date::normalise_timezone($CFG->timezone)));
